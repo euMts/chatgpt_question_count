@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ChatGPT Question Count</title>
-    <script src="count.js"></script>
+    <script src="popup.js"></script>
+    <script src="background.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
@@ -21,15 +22,34 @@
       <button id="button" class="button" style="display: flex">
         Open ChatGPT
       </button>
-      <div class="content" id="default" style="display: flex">
-        <h3 id="docs" style="color: #A9A9B6;">Read the docs</h3>
-        <h3 id="donate" style="color: #A9A9B6;">Donate</h3>
+      <div class="content" id="defaultContent" style="display: flex">
+        <h3 id="docs" style="color: #a9a9b6">Read the docs</h3>
+        <h3 id="donate" style="color: #a9a9b6">Donate</h3>
       </div>
       <div class="content" id="donateContainer" style="display: none">
-        <button id="returnBtn" class="secondButton" style="background-color: #a01717;">Return</button>
-        <button id="pixDonation" class="secondButton" style="background-color: #17a019;">Pix</button>
-        <button id="mercadoPagoDonation" class="secondButton" style="background-color: #1762a0;">Credit Card</button>
+        <button
+          id="returnBtn"
+          class="secondButton"
+          style="background-color: #a01717"
+        >
+          Return
+        </button>
+        <button
+          id="paypalDonation"
+          class="secondButton"
+          style="background-color: #1762a0"
+        >
+          Paypal
+        </button>
+        <button
+          id="pixDonation"
+          class="secondButton"
+          style="background-color: #17a019"
+        >
+          Pix
+        </button>
       </div>
+      <h1 id="teste"></h1>
     </div>
   </body>
 </html>

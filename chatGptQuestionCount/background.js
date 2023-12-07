@@ -1,32 +1,23 @@
-chrome.webRequest.onCompleted.addListener(
-  function (details) {
-    if (
-      details.url === "https://chat.openai.com/backend-api/conversation" &&
-      details.statusCode === 200
-    ) {
-      saveData(function () {
-        showData(function () {});
-      });
-    }
-  },
-  { urls: ["https://chat.openai.com/backend-api/*"] },
-  ["responseHeaders"]
-);
-
-function saveData(callback) {
-  chrome.storage.local.get(["count"], function (result) {
-    var lastValue = result.count || 0;
+function saveCount(callback) {
+  chrome.storage.local.get(["gptCount"], function (result) {
+    var lastValue = result.gptCount || 0;
     var newValue = lastValue + 1;
 
-    chrome.storage.local.set({ count: newValue }, function () {
-      callback();
-    });
+    chrome.storage.local.set({ gptCount: newValue }, function () {});
+    callback(newValue);
   });
 }
 
-function showData(callback) {
-  chrome.storage.local.get(["count"], function (result) {
-    var currentCount = result.count || 0;
-    callback(currentCount);
-  });
-}
+chrome.webRequest.onCompleted.addListener(
+  function (details) {
+    console.log(details)
+    if (
+      details.url == "https://chat.openai.com/backend-api/conversation" &&
+      details.statusCode === 200
+    ) {
+      saveCount((value) => chrome.runtime.sendMessage({ countValue: value }));
+    }
+  },
+  { urls: ["https://chat.openai.com/*"] },
+  ["responseHeaders"]
+);
