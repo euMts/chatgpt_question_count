@@ -28,8 +28,6 @@ Você pode instalar a extensão a partir [daqui]().<br>
 **[MIT License](LICENSE.md)**<br>
 **[My Website](https://www.matheus-eduardo.com.br)**<br>
 
----
-
 ## > Donation<br>
 **[Pix](https://nubank.com.br/pagar/1cppij/yQT2VfJJLq)**<br>
 **[Paypal](https://www.paypal.com/donate/?business=9JLBAMGH5985E&no_recurring=0&item_name=Thank+you%21&currency_code=USD)**<br>
