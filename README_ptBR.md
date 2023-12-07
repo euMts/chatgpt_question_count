@@ -25,18 +25,19 @@ Eu provavelmente não farei nenhuma atualização nova a não ser para corrigir 
 Você pode instalar a extensão a partir [daqui]().<br>
 
 ## > License<br>
+**[MIT License](LICENSE.md)**<br>
+**[My Website](https://www.matheus-eduardo.com.br)**<br>
 
-**[MIT License](LICENSE.md)**<br>**[My Website](https://www.matheus-eduardo.com.br)**<br>
 ---
 
 ## > Donation<br>
-
 **[Pix](https://nubank.com.br/pagar/1cppij/yQT2VfJJLq)**<br>
 **[Paypal](https://www.paypal.com/donate/?business=9JLBAMGH5985E&no_recurring=0&item_name=Thank+you%21&currency_code=USD)**<br>
 
 ## > Contact<br>
-
 Email: matheusetp@hotmail.com<br>
 Instagram: [@mts.e](https://www.instagram.com/mts.e/)<br>
+
 ---
+
 Made by **Matheus Tem Pass**👋

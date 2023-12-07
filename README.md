@@ -25,8 +25,9 @@ I probably won't release any updates unless there's a bug, you can [submit an is
 You can download the extension from [this url]().<br>
 
 ## > License<br>
+**[MIT License](LICENSE.md)**<br>
+**[My Website](https://www.matheus-eduardo.com.br)**<br>
 
-**[MIT License](LICENSE.md)**<br>**[My Website](https://www.matheus-eduardo.com.br)**<br>
 ---
 
 ## > Donation<br>
@@ -36,5 +37,7 @@ You can download the extension from [this url]().<br>
 ## > Contact<br>
 Email: matheusetp@hotmail.com<br>
 Instagram: [@mts.e](https://www.instagram.com/mts.e/)<br>
+
 ---
+
 Made by **Matheus Tem Pass**👋
