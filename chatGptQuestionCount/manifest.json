@@ -5,7 +5,7 @@
   "description": "Extension to count how many ChatGPT questions you asked.",
   "manifest_version": 3,
   "permissions": ["activeTab", "scripting", "webRequest", "storage"],
-  "host_permissions": ["<all_urls>"],
+  "host_permissions": ["https://chat.openai.com/*"],
   "action": {
     "default_popup": "popup.html"
   },

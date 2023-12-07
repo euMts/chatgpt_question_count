@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   docs.addEventListener("click", (event) => {
     event.preventDefault();
-    const url = "https://github.com/euMts";
+    const url = "https://github.com/euMts/chatgpt_question_count";
     window.open(url, "_blank");
   });
 
