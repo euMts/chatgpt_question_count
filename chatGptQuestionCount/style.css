@@ -28,6 +28,7 @@ body {
   padding: 20px 0 0 0;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 h1,
@@ -44,7 +45,7 @@ h3 {
 }
 
 h3:hover {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .button {
@@ -53,13 +54,13 @@ h3:hover {
   justify-content: center;
   line-height: 1;
   text-decoration: none;
-  color: #ffffff;
+  color: #ececf1;
   font-size: 18px;
   border: 0;
   border-radius: 5px;
   padding: 25px 20px;
   height: 40px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-weight: bold;
   transition: 0.3s;
   background-color: #17a081;
@@ -67,7 +68,7 @@ h3:hover {
 }
 
 .button:hover {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .secondButton {
@@ -76,10 +77,10 @@ h3:hover {
   justify-content: center;
   line-height: 1;
   text-decoration: none;
-  color: #ffffff;
+  color: #ececf1;
   font-size: 18px;
   border-radius: 5px;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 10px;
   height: 40px;
   font-weight: bold;
@@ -90,5 +91,28 @@ h3:hover {
 }
 
 .secondButton:hover {
-  opacity: .7;
+  opacity: 0.7;
+}
+
+#result {
+  cursor: pointer;
+}
+#result:hover {
+  opacity: 0.7;
+}
+
+.inputCount {
+  background-color: #343541;
+  border: 1px solid #494a54;
+  border-radius: 2px;
+  padding: 9px;
+  color: #ececf1;
+  text-decoration: none;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.inputCount::-webkit-inner-spin-button,
+.inputCount::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

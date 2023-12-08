@@ -1,3 +1,10 @@
+function updateCount(newValue, callback) {
+  chrome.storage.local.get(["gptCount"], function () {
+    chrome.storage.local.set({ gptCount: parseInt(newValue) }, function () {});
+  });
+  callback();
+}
+
 function showCount(callback) {
   chrome.storage.local.get(["gptCount"], function (result) {
     callback(result.gptCount);
@@ -16,6 +23,43 @@ document.addEventListener("DOMContentLoaded", function () {
   const paypalDonation = document.getElementById("paypalDonation");
   const defaultContent = document.getElementById("defaultContent");
   const donateContainer = document.getElementById("donateContainer");
+  const inputContent = document.getElementById("inputContent");
+  const newCountBtn = document.getElementById("newCountBtn");
+  const inputCount = document.getElementById("inputCount");
+
+  function updateAndDisplayCount(value) {
+    if (value) {
+      result.textContent = value;
+    } else {
+      result.textContent = 0;
+    }
+  }
+
+  inputCount.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      newCountBtn.click();
+    }
+  });
+
+  result.addEventListener("click", (event) => {
+    event.preventDefault();
+    content.style.display = "none";
+    inputContent.style.display = "flex";
+    inputCount.value = result.textContent;
+  });
+
+  newCountBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    if (inputCount.value < 0) {
+      inputCount.value = 0;
+    }
+    inputCount.value = Number(String(inputCount.value));
+    updateCount(inputCount.value, function () {
+      content.style.display = "flex";
+      inputContent.style.display = "none";
+      updateAndDisplayCount(inputCount.value);
+    });
+  });
 
   donate.addEventListener("click", (event) => {
     event.preventDefault();
@@ -54,14 +98,6 @@ document.addEventListener("DOMContentLoaded", function () {
     window.open(url, "_blank");
   });
 
-  function updateAndDisplayCount(value) {
-    if (value) {
-      result.textContent = value;
-    } else {
-      result.textContent = 0;
-    }
-  }
-
   showCount(updateAndDisplayCount);
 
   chrome.runtime.onMessage.addListener(function (request) {
@@ -75,14 +111,28 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const getUsername = () => {
-    const userName = document.evaluate(
-      "//div[@class='font-semibold']",
-      document,
-      null,
-      XPathResult.FIRST_ORDERED_NODE_TYPE,
-      null
-    ).singleNodeValue.textContent;
-    return userName;
+    try {
+      const userName = document.evaluate(
+        "//div[@class='font-semibold']",
+        document,
+        null,
+        XPathResult.FIRST_ORDERED_NODE_TYPE,
+        null
+      ).singleNodeValue.textContent;
+      const firstName = userName.split(" ");
+
+      if (userName === "" || !userName) {
+        return "name_here";
+      }
+
+      if (firstName) {
+        return firstName[0];
+      }
+
+      return userName;
+    } catch {
+      return "name_here";
+    }
   };
 
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
@@ -95,8 +145,6 @@ document.addEventListener("DOMContentLoaded", function () {
       (resultArray) => {
         try {
           const result = resultArray[0].result;
-          console.log(currentUrl);
-          console.log(currentUrl.includes("chat.openai.com"));
           if (currentUrl.includes("chat.openai.com")) {
             content.style.display = "flex";
             button.style.display = "none";
