@@ -22,7 +22,7 @@ Eu provavelmente não farei nenhuma atualização nova a não ser para corrigir 
 - Gpt 3.5 (free)
 
 ## > Instalação<br>
-Você pode instalar a extensão a partir [daqui]().<br>
+Você pode instalar a extensão a partir [daqui](chromewebstore.google.com/detail/chatgpt-question-count/naokkoogmjjhnehoadkmpicliffbjllc).<br>
 
 ## > License<br>
 **[MIT License](LICENSE.md)**<br>
