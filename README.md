@@ -11,7 +11,7 @@ You can make a donation or get in contact with me if you want, just scroll to th
 ## > Tested Versions and Updates<br>
 I probably won't release any updates unless there's a bug, you can [submit an issue](https://github.com/euMts/chatgpt_question_count/issues) in case you found one.<br>
 
-### Last Update: 08/12/2023
+### Last Update: 10/12/2023
 
 ### Tested Browser Versions:
 
