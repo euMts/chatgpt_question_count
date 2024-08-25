@@ -27,24 +27,23 @@ body {
   width: 100%;
   padding: 20px 0 0 0;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
 h1,
 h2,
-h3 {
+a {
   font-family: sans-serif;
   color: #ececf1;
 }
 
-h3 {
+a {
   font-size: 15px;
   text-decoration: underline;
-  cursor: pointer;
 }
 
-h3:hover {
+a:hover {
   opacity: 0.7;
 }
 
@@ -65,9 +64,11 @@ h3:hover {
   transition: 0.3s;
   background-color: #17a081;
   margin: 20px 0 0 0;
+  cursor: pointer;
 }
 
-.button:hover {
+.button:hover,
+.secondButton:hover {
   opacity: 0.7;
 }
 
@@ -88,16 +89,17 @@ h3:hover {
   border: 0;
   background-color: #343541;
   font-size: 15px;
+  cursor: pointer;
+  margin-left: 10px;
 }
 
-.secondButton:hover {
-  opacity: 0.7;
-}
-
-#result {
+#result,
+#count {
+  margin-left: 5px;
   cursor: pointer;
 }
-#result:hover {
+#result:hover,
+#count:hover {
   opacity: 0.7;
 }
 
@@ -115,4 +117,8 @@ h3:hover {
 .inputCount::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+#profilePic {
+  border-radius: 100px;
 }

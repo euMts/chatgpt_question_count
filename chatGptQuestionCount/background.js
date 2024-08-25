@@ -10,14 +10,13 @@ function saveCount(callback) {
 
 chrome.webRequest.onCompleted.addListener(
   function (details) {
-    console.log(details)
     if (
-      details.url == "https://chat.openai.com/backend-api/conversation" &&
+      details.url == "https://chatgpt.com/backend-api/conversation" &&
       details.statusCode === 200
     ) {
       saveCount((value) => chrome.runtime.sendMessage({ countValue: value }));
     }
   },
-  { urls: ["https://chat.openai.com/*"] },
+  { urls: ["https://chatgpt.com/*"] },
   ["responseHeaders"]
 );

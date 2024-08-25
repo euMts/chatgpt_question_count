@@ -11,15 +11,15 @@ You can make a donation or get in contact with me if you want, just scroll to th
 ## > Tested Versions and Updates<br>
 I probably won't release any updates unless there's a bug, you can [submit an issue](https://github.com/euMts/chatgpt_question_count/issues) in case you found one.<br>
 
-### Last Update: 10/12/2023
+### Last Update: 25/08/2024
 
 ### Tested Browser Versions:
 
 - Chrome 120.0.6099.71<br>
-- Opera 105.0.4970.29<br>
+- Opera 112.0.5197.53<br>
 
 ### Tested ChatGPT Versions:
-- Gpt 3.5 (free)
+- Gpt 3.5, Gpt 4, Gpt 4o (25/08/2024)
 
 ## > Installation<br>
 You can download the extension from [this url](https://chromewebstore.google.com/detail/chatgpt-question-count/naokkoogmjjhnehoadkmpicliffbjllc).<br>

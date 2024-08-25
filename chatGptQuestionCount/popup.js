@@ -12,17 +12,11 @@ function showCount(callback) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  const count = document.getElementById("count");
   const result = document.getElementById("result");
   const content = document.getElementById("content");
   const button = document.getElementById("button");
-  const usernameField = document.getElementById("username");
-  const docs = document.getElementById("docs");
-  const donate = document.getElementById("donate");
-  const returnBtn = document.getElementById("returnBtn");
-  const pixDonation = document.getElementById("pixDonation");
-  const paypalDonation = document.getElementById("paypalDonation");
-  const defaultContent = document.getElementById("defaultContent");
-  const donateContainer = document.getElementById("donateContainer");
+  const profilePicField = document.getElementById("profilePic");
   const inputContent = document.getElementById("inputContent");
   const newCountBtn = document.getElementById("newCountBtn");
   const inputCount = document.getElementById("inputCount");
@@ -41,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  result.addEventListener("click", (event) => {
+  count.addEventListener("click", (event) => {
     event.preventDefault();
     content.style.display = "none";
     inputContent.style.display = "flex";
@@ -61,40 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  donate.addEventListener("click", (event) => {
-    event.preventDefault();
-    defaultContent.style.display = "none";
-    donateContainer.style.display = "flex";
-  });
-
-  returnBtn.addEventListener("click", (event) => {
-    event.preventDefault();
-    defaultContent.style.display = "flex";
-    donateContainer.style.display = "none";
-  });
-
   button.addEventListener("click", (event) => {
     event.preventDefault();
-    const url = "https://chat.openai.com";
-    window.open(url, "_blank");
-  });
-
-  docs.addEventListener("click", (event) => {
-    event.preventDefault();
-    const url = "https://github.com/euMts/chatgpt_question_count";
-    window.open(url, "_blank");
-  });
-
-  pixDonation.addEventListener("click", (event) => {
-    event.preventDefault();
-    const url = "https://nubank.com.br/pagar/1cppij/yQT2VfJJLq";
-    window.open(url, "_blank");
-  });
-
-  paypalDonation.addEventListener("click", (event) => {
-    event.preventDefault();
-    const url =
-      "https://www.paypal.com/donate/?business=9JLBAMGH5985E&no_recurring=0&item_name=Thank+you%21&currency_code=USD";
+    const url = "https://chatgpt.com";
     window.open(url, "_blank");
   });
 
@@ -106,32 +69,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  function displayName(username) {
-    usernameField.textContent = username;
+  function displayImg(profilePicSrc) {
+    profilePicField.src = profilePicSrc;
   }
 
-  const getUsername = () => {
+  const getProfilePic = () => {
     try {
-      const userName = document.evaluate(
-        "//div[@class='font-semibold']",
+      const userImageElement = document.evaluate(
+        "//img[@alt='User']",
         document,
         null,
         XPathResult.FIRST_ORDERED_NODE_TYPE,
         null
-      ).singleNodeValue.textContent;
-      const firstName = userName.split(" ");
+      ).singleNodeValue;
 
-      if (userName === "" || !userName) {
-        return "name_here";
+      if (userImageElement === "" || !userImageElement) {
+        return undefined;
       }
 
-      if (firstName) {
-        return firstName[0];
-      }
-
-      return userName;
+      return userImageElement.getAttribute("src");
     } catch {
-      return "name_here";
+      return undefined;
     }
   };
 
@@ -140,18 +98,18 @@ document.addEventListener("DOMContentLoaded", function () {
     chrome.scripting.executeScript(
       {
         target: { tabId: tabs[0].id },
-        function: getUsername,
+        function: getProfilePic,
       },
       (resultArray) => {
         try {
           const result = resultArray[0].result;
-          if (currentUrl.includes("chat.openai.com")) {
+          if (currentUrl.includes("chatgpt.com")) {
             content.style.display = "flex";
             button.style.display = "none";
           }
-          displayName(result);
+          displayImg(result);
         } catch {
-          console.log("Error getting user's name");
+          console.log("Error getting user's profile pic");
         }
       }
     );
